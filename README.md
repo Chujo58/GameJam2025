@@ -31,13 +31,29 @@ end get flushed out
 
 
 -[] Lobster range 3 piercing 5 sec coldown.
+
+
 -[] HP based 
+
+
 -[] range enemy (speed poisson distribuion)
+
+
 -[] melee enemy (speed poisson distribution)
+
+
 -[] tank enemy (muffin)
+
+
 -[] Elite enemy? (same attack 2 pattern) (bigger recolored)
+
+
 -[] Boss enemy (1) (Chicken sashimi)
+
+
 -[] wall/floor texture
+
+
 -[] enemy drop coin for gatcha
 
 
