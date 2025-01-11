@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://ceepx55hpwqh0"
-=======
-uid="uid://boqlk6g61osdm"
->>>>>>> 87602a9f0bc300904e8b65b0a56f1c77a5989f1c
-path="res://.godot/imported/lobdashnoclaw(THIS).png-17443afeef2786a2bfb8ed7217a42a6f.ctex"
+uid="uid://c6v05ybxsl7xd"
+path="res://.godot/imported/test.png-b9821589840ad925520b46163c295b2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lobterassets/lobdashnoclaw(THIS).png"
-dest_files=["res://.godot/imported/lobdashnoclaw(THIS).png-17443afeef2786a2bfb8ed7217a42a6f.ctex"]
+source_file="res://dungeon generation/test.png"
+dest_files=["res://.godot/imported/test.png-b9821589840ad925520b46163c295b2e.ctex"]
 
 [params]
 
