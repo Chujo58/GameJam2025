@@ -8,7 +8,6 @@ var speed = 100
 
 func _ready() -> void:
 	add_to_group("enemy")
-	player = get_node("/root/MainScene/test_character")
 
 
 

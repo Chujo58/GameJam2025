@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bvo525jrkhrct"
+=======
+uid="uid://cp2jinemyd01h"
+>>>>>>> 6de2470722989be36917a3f7b48eea2e72d55aa0
 path="res://.godot/imported/lobwalktailess(THIS).png-7116403f9a95856fd82fe7d643fe30d0.ctex"
 metadata={
 "vram_texture": false

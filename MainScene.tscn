@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=11 format=4 uid="uid://dcppwiiqi102x"]
+=======
+[gd_scene load_steps=12 format=4 uid="uid://dcppwiiqi102x"]
+>>>>>>> 6de2470722989be36917a3f7b48eea2e72d55aa0
 
 [ext_resource type="PackedScene" uid="uid://gvsvj3b4v1nf" path="res://test_character.tscn" id="1_l0sjn"]
 [ext_resource type="Script" path="res://main_scene.gd" id="1_pl0dw"]
@@ -75,3 +79,9 @@ tile_set = SubResource("TileSet_uwrjd")
 
 [node name="test_character" parent="." instance=ExtResource("1_l0sjn")]
 position = Vector2(487, 32)
+<<<<<<< HEAD
+=======
+
+[node name="chickenEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_3k8m0")]
+player = NodePath("../test_character")
+>>>>>>> 6de2470722989be36917a3f7b48eea2e72d55aa0
