@@ -16,3 +16,13 @@ Optional challenges
 - [ ] Absolute Cinema
 - [ ] FX Evolution
 - [ ] Dimensional Deception
+
+
+//Dumb lore
+Gatcha animation( live footage of buying lobster)
+Game start
+Based on a true story
+Cutseen?
+lobster getting picked at the super market and getting coocked and eaten
+tries to get the missing bodypart and survive
+end get flushed out 
