@@ -17,6 +17,11 @@ Optional challenges
 - [ ] FX Evolution
 - [ ] Dimensional Deception
 
+## Tiles
+
+* [ ] Up, down, left, right arrays to know which rooms have which doors/where they can be connected to.
+* [ ] Generation algorithm
+* [ ] 3 States for the doors: open, closed and inaccessible.
 
 //Dumb lore
 Gatcha animation( live footage of buying lobster)
@@ -25,175 +30,19 @@ Based on a true story
 Cutseen?
 lobster getting picked at the super market and getting coocked and eaten
 tries to get the missing bodypart and survive
-end get flushed out 
+end get flushed out
 
--[ ]Lobster attack, true aoe melee hit everything 
+* [ ] Lobster attack, true aoe melee hit everything
+* [ ]  Lobster range 3 piercing 5 sec coldown.
 
+* [ ] HP based
+* [ ] range enemy (speed poisson distribuion)
 
--[] Lobster range 3 piercing 5 sec coldown.
+* [ ] melee enemy (speed poisson distribution)
+* [ ] tank enemy (muffin)
 
+* [ ] Elite enemy? (same attack 2 pattern) (bigger recolored)
+* [ ] Boss enemy (1) (Chicken sashimi)
 
--[] HP based 
-
-
--[] range enemy (speed poisson distribuion)
-
-
--[] melee enemy (speed poisson distribution)
-
-
--[] tank enemy (muffin)
-
-
--[] Elite enemy? (same attack 2 pattern) (bigger recolored)
-
-
--[] Boss enemy (1) (Chicken sashimi)
-
-
--[] wall/floor texture
-
-
--[] enemy drop coin for gatcha
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* [ ] wall/floor texture
+* [ ] enemy drop coin for gatcha
