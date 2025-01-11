@@ -18,7 +18,6 @@ shape = SubResource("CapsuleShape2D_kdt6a")
 
 [node name="Muzzle" type="Marker2D" parent="CollisionShape2D"]
 position = Vector2(7.62939e-06, -5.96046e-08)
-scale = Vector2(1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D/Muzzle"]
 position = Vector2(87, -1)
