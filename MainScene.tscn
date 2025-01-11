@@ -1,15 +1,10 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=11 format=4 uid="uid://dcppwiiqi102x"]
-=======
-[gd_scene load_steps=10 format=4 uid="uid://dcppwiiqi102x"]
->>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://gvsvj3b4v1nf" path="res://test_character.tscn" id="1_l0sjn"]
 [ext_resource type="Script" path="res://main_scene.gd" id="1_pl0dw"]
 [ext_resource type="Texture2D" uid="uid://bp67yd7yo2rfp" path="res://texture_tiles/wall1.png" id="3_ch6iw"]
 [ext_resource type="Texture2D" uid="uid://bg82isypxmrna" path="res://Wallset.png" id="3_iuhls"]
 [ext_resource type="Texture2D" uid="uid://b57kfte7w0cbf" path="res://texture_tiles/floor1.png" id="4_qmh8q"]
-[ext_resource type="PackedScene" uid="uid://btlwnbf7s30hc" path="res://chickenEnemy.tscn" id="5_3k8m0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v11to"]
 
@@ -79,11 +74,4 @@ tile_map_data = PackedByteArray("AAAJAAoAAgABABEAAAAKAAoAAgABABEAAAALAAoAAgABABE
 tile_set = SubResource("TileSet_uwrjd")
 
 [node name="test_character" parent="." instance=ExtResource("1_l0sjn")]
-<<<<<<< Updated upstream
 position = Vector2(487, 32)
-=======
-position = Vector2(544, 48)
-
-[node name="chickenEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_3k8m0")]
-player = NodePath("../test_character")
->>>>>>> Stashed changes

@@ -3,16 +3,19 @@ extends CharacterBody2D
 # Running/moving constants
 const DEFAULT_SPEED:int = 300
 const RUN_SPEED:int = 450
-const DASH_SPEED:int = 1200
+const DASH_SPEED:int = -1200
 var SPEED:int = DEFAULT_SPEED
 
 @onready var HP = 5
 const BULLET = preload("res://Bullet.tscn")
 
+var last_direction
+@onready var walking_stream = $WalkingAudioStream
 
 func get_input() -> void:
 	var input_direction = Input.get_vector("Left","Right","Up","Down")
 	velocity = input_direction*SPEED
+	last_direction = input_direction
 
 
 func _physics_process(delta: float) -> void:
@@ -22,7 +25,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Run"):
 		$DashTimer.start()
 		SPEED = DASH_SPEED
-		velocity = Input.get_vector("Left","Right","Up","Down")*SPEED
+		# velocity = Input.get_vector("Left","Right","Up","Down")*SPEED
+		velocity = last_direction * SPEED
 	
 	$CollisionShape2D.look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("Shoot"):
