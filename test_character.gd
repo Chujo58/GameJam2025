@@ -1,21 +1,16 @@
 extends CharacterBody2D
 
 # Running/moving constants
-const DEFAULT_SPEED = 300.0
-const RUN_SPEED = 450.0
-const DASH_SPEED = 10000.0
-@onready var SPEED = DEFAULT_SPEED
+const DEFAULT_SPEED:int = 300
+const RUN_SPEED:int = 450
+const DASH_SPEED:int = 1200
+var SPEED:int = DEFAULT_SPEED
 
-# Dash with double tapping the 'R' key
-const DOUBLETAP_DELAY = .25
-const DASH_CD = 5
-const DASH_DELAY = 1
-@onready var doubletap_time = DOUBLETAP_DELAY
-@onready var dash_time = DASH_DELAY
-@onready var dash_timer_cd = Timer.new()
-@onready var last_keycode = 0
+@onready var HP = 5
+const BULLET = preload("res://Bullet.tscn")
 
-func get_input():
+
+func get_input() -> void:
 	var input_direction = Input.get_vector("Left","Right","Up","Down")
 	velocity = input_direction*SPEED
 
@@ -28,7 +23,15 @@ func _physics_process(delta: float) -> void:
 		$DashTimer.start()
 		SPEED = DASH_SPEED
 		velocity = Input.get_vector("Left","Right","Up","Down")*SPEED
-		
+	
+	$CollisionShape2D.look_at(get_global_mouse_position())
+	if Input.is_action_just_pressed("Shoot"):
+		shoot()
 
 func _on_dash_timer_timeout() -> void:
 	SPEED = DEFAULT_SPEED
+
+func shoot():
+	var bullet = BULLET.instantiate()
+	owner.add_child(bullet)
+	bullet.transform = $CollisionShape2D/Muzzle.global_transform
