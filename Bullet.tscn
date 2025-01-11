@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c62jr2m3h72e2" path="res://icon.svg" id="2_p3j4h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e4xwe"]
+radius = 16.0
+height = 34.0
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 4
@@ -18,3 +20,4 @@ texture = ExtResource("2_p3j4h")
 shape = SubResource("CapsuleShape2D_e4xwe")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
