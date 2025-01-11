@@ -1,0 +1,99 @@
+Node at (0,0) with size (35,35)
+	Left: Node at (0,0) with size (17,35)
+		Left: Node at (0,0) with size (17,10)
+			Left: Node at (0,0) with size (7,10)
+				Left: None
+				Right: None
+				Right: Node at (7,0) with size (10,10)
+					Left: None
+					Right: None
+					Right: Node at (0,10) with size (17,25)
+						Left: Node at (0,10) with size (17,17)
+							Left: Node at (0,10) with size (5,17)
+								Left: Node at (0,10) with size (5,6)
+									Left: None
+									Right: None
+									Right: Node at (0,16) with size (5,11)
+										Left: Node at (0,16) with size (5,6)
+											Left: None
+											Right: None
+											Right: Node at (0,22) with size (5,5)
+												Left: None
+												Right: None
+												Right: Node at (5,10) with size (12,17)
+													Left: Node at (5,10) with size (12,9)
+														Left: Node at (5,10) with size (6,9)
+															Left: None
+															Right: None
+															Right: Node at (11,10) with size (6,9)
+																Left: None
+																Right: None
+																Right: Node at (5,19) with size (12,8)
+																	Left: Node at (5,19) with size (5,8)
+																		Left: None
+																		Right: None
+																		Right: Node at (10,19) with size (7,8)
+																			Left: None
+																			Right: None
+																			Right: Node at (0,27) with size (17,8)
+																				Left: Node at (0,27) with size (6,8)
+																					Left: None
+																					Right: None
+																					Right: Node at (6,27) with size (11,8)
+																						Left: Node at (6,27) with size (5,8)
+																							Left: None
+																							Right: None
+																							Right: Node at (11,27) with size (6,8)
+																								Left: None
+																								Right: None
+																								Right: Node at (17,0) with size (18,35)
+																									Left: Node at (17,0) with size (18,19)
+																										Left: Node at (17,0) with size (11,19)
+																											Left: Node at (17,0) with size (11,13)
+																												Left: Node at (17,0) with size (6,13)
+																													Left: Node at (17,0) with size (6,8)
+																														Left: None
+																														Right: None
+																														Right: Node at (17,8) with size (6,5)
+																															Left: None
+																															Right: None
+																															Right: Node at (23,0) with size (5,13)
+																																Left: Node at (23,0) with size (5,7)
+																																	Left: None
+																																	Right: None
+																																	Right: Node at (23,7) with size (5,6)
+																																		Left: None
+																																		Right: None
+																																		Right: Node at (17,13) with size (11,6)
+																																			Left: Node at (17,13) with size (5,6)
+																																				Left: None
+																																				Right: None
+																																				Right: Node at (22,13) with size (6,6)
+																																					Left: None
+																																					Right: None
+																																					Right: Node at (28,0) with size (7,19)
+																																						Left: Node at (28,0) with size (7,8)
+																																							Left: None
+																																							Right: None
+																																							Right: Node at (28,8) with size (7,11)
+																																								Left: Node at (28,8) with size (7,5)
+																																									Left: None
+																																									Right: None
+																																									Right: Node at (28,13) with size (7,6)
+																																										Left: None
+																																										Right: None
+																																										Right: Node at (17,19) with size (18,16)
+																																											Left: Node at (17,19) with size (9,16)
+																																												Left: Node at (17,19) with size (9,10)
+																																													Left: None
+																																													Right: None
+																																													Right: Node at (17,29) with size (9,6)
+																																														Left: None
+																																														Right: None
+																																														Right: Node at (26,19) with size (9,16)
+																																															Left: Node at (26,19) with size (9,10)
+																																																Left: None
+																																																Right: None
+																																																Right: Node at (26,29) with size (9,6)
+																																																	Left: None
+																																																	Right: None
