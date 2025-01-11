@@ -15,30 +15,16 @@ func get_input():
 	var input_direction = Input.get_vector("Left","Right","Up","Down")
 	velocity = input_direction*SPEED
 
-func _input(event):
-	if event is InputEventKey and event.is_pressed():
-		if last_keycode == event.keycode and doubletap_time > 0 and dash_time > 0:
-			if String.chr(last_keycode) == 'R':
-				SPEED = DASH_SPEED
-			last_keycode = 0
-		else:
-			last_keycode = event.keycode
-			if dash_time < 0:
-				SPEED = RUN_SPEED
-			
-		doubletap_time = DOUBLETAP_DELAY
-		
-	if event.is_action_released("Run"):
-		SPEED = DEFAULT_SPEED
-
-
 
 func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("Run"):
+		$DashTimer.start()
+		SPEED = DASH_SPEED
+		velocity = Input.get_vector("Left","Right","Up","Down")*SPEED
+		
 
-	doubletap_time -= delta
-	dash_time -= delta
-
-	if Input.is_action_pressed("Run"):
-		SPEED = RUN_SPEED
+func _on_dash_timer_timeout() -> void:
+	SPEED = DEFAULT_SPEED
