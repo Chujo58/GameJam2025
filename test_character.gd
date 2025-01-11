@@ -35,3 +35,4 @@ func shoot():
 	var bullet = BULLET.instantiate()
 	owner.add_child(bullet)
 	bullet.transform = $CollisionShape2D/Muzzle.global_transform
+	
