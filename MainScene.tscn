@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcppwiiqi102x"]
+[gd_scene load_steps=4 format=3 uid="uid://dcppwiiqi102x"]
 
 [ext_resource type="PackedScene" uid="uid://gvsvj3b4v1nf" path="res://test_character.tscn" id="1_l0sjn"]
 [ext_resource type="Script" path="res://main_scene.gd" id="1_pl0dw"]
+
+[sub_resource type="TileSet" id="TileSet_pijb1"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_pl0dw")
 
 [node name="test_character" parent="." instance=ExtResource("1_l0sjn")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_pijb1")

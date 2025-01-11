@@ -46,4 +46,7 @@ end get flushed out
 
 * [ ] wall/floor texture
 * [ ] enemy drop coin for gatcha
-test
+
+##working on claws
+claws will be two identity, do we just link the input of the part or is there a way to link it
+to the main character?
