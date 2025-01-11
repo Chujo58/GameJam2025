@@ -9,13 +9,19 @@ var SPEED:int = DEFAULT_SPEED
 @onready var HP = 5
 const BULLET = preload("res://Bullet.tscn")
 
-var last_direction
+# var last_direction
 @onready var walking_stream = $WalkingAudioStream
 
 func get_input() -> void:
 	var input_direction = Input.get_vector("Left","Right","Up","Down")
 	velocity = input_direction*SPEED
-	last_direction = input_direction
+	# last_direction = input_direction
+
+	if velocity != Vector2.ZERO:
+		if not walking_stream.playing:
+			walking_stream.play()
+	else:
+		walking_stream.stop()
 
 
 func _physics_process(delta: float) -> void:
@@ -25,8 +31,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Run"):
 		$DashTimer.start()
 		SPEED = DASH_SPEED
-		# velocity = Input.get_vector("Left","Right","Up","Down")*SPEED
-		velocity = last_direction * SPEED
+		velocity = Input.get_vector("Left","Right","Up","Down")*SPEED
+		# velocity = last_direction * SPEED
 	
 	$CollisionShape2D.look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("Shoot"):

@@ -5,15 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://bnw8ytjonwism" path="res://lobterassets/lobterdashnoclaw.png" id="2_2fwx4"]
 [ext_resource type="Texture2D" uid="uid://snkdiixfyjej" path="res://lobterassets/lobterwalk.png" id="2_55ax7"]
 [ext_resource type="Texture2D" uid="uid://cglta6tjk3ogl" path="res://lobterassets/lobterdashoneclaw.png" id="3_sehvh"]
-[ext_resource type="PackedScene" path="res://melee_area.tscn" id="4_avf0f"]
+[ext_resource type="PackedScene" uid="uid://djxqlx0k37u8t" path="res://melee_area.tscn" id="4_avf0f"]
 [ext_resource type="Texture2D" uid="uid://bv1trratfm1xa" path="res://lobterassets/lobterdash.png" id="4_jxcxa"]
 [ext_resource type="Texture2D" uid="uid://nuigqbpd5jao" path="res://lobterassets/lobteridle.png" id="5_288x5"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://sg34vk86kfct" path="res://lobterassets/lobidle(THIS).png" id="7_luvhc"]
-[ext_resource type="AudioStream" uid="uid://cwdcceexdplud" path="res://sound fx/Lobster Walking.wav" id="10_5ubgf"]
-=======
-[ext_resource type="Texture2D" uid="uid://gkid3dgh6ufw" path="res://lobterassets/lobidle(THIS).png" id="7_luvhc"]
->>>>>>> 6de2470722989be36917a3f7b48eea2e72d55aa0
+[ext_resource type="Texture2D" uid="uid://c7uvojjc2w7fo" path="res://lobterassets/lobidle(THIS).png" id="7_luvhc"]
+[ext_resource type="AudioStream" uid="uid://c2qnkqwwa3u2x" path="res://sound fx/Lobster Walking.wav" id="10_5ubgf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qc354"]
 atlas = ExtResource("2_2fwx4")
