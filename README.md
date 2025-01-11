@@ -27,7 +27,7 @@ lobster getting picked at the super market and getting coocked and eaten
 tries to get the missing bodypart and survive
 end get flushed out 
 
--[] Lobster attack, true aoe melee hit everything,
+-[ ]Lobster attack, true aoe melee hit everything,
 -[] Lobster range 3 piercing 5 sec coldown.
 -[] HP based 
 -[] range enemy (speed poisson distribuion)
