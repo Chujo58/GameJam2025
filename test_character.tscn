@@ -1,14 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://gvsvj3b4v1nf"]
+[gd_scene load_steps=33 format=3 uid="uid://gvsvj3b4v1nf"]
 
 [ext_resource type="Texture2D" uid="uid://c62jr2m3h72e2" path="res://icon.svg" id="1_7ao7v"]
 [ext_resource type="Script" path="res://test_character.gd" id="1_spkl0"]
 [ext_resource type="Texture2D" uid="uid://bnw8ytjonwism" path="res://lobterassets/lobterdashnoclaw.png" id="2_2fwx4"]
 [ext_resource type="Texture2D" uid="uid://snkdiixfyjej" path="res://lobterassets/lobterwalk.png" id="2_55ax7"]
 [ext_resource type="Texture2D" uid="uid://cglta6tjk3ogl" path="res://lobterassets/lobterdashoneclaw.png" id="3_sehvh"]
-<<<<<<< Updated upstream
-=======
-[ext_resource type="PackedScene" path="res://melee_area.tscn" id="4_avf0f"]
->>>>>>> Stashed changes
+[ext_resource type="PackedScene" uid="uid://djxqlx0k37u8t" path="res://melee_area.tscn" id="4_avf0f"]
 [ext_resource type="Texture2D" uid="uid://bv1trratfm1xa" path="res://lobterassets/lobterdash.png" id="4_jxcxa"]
 [ext_resource type="Script" path="res://animated_sprite_2d.gd" id="7_852w0"]
 [ext_resource type="Texture2D" uid="uid://c7uvojjc2w7fo" path="res://lobterassets/lobidle(THIS).png" id="7_luvhc"]
@@ -210,6 +207,8 @@ position = Vector2(7.62939e-06, -5.96046e-08)
 position = Vector2(87, -1)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_7ao7v")
+
+[node name="melee_area" parent="CollisionShape2D" instance=ExtResource("4_avf0f")]
 
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 0.12
