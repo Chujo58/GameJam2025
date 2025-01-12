@@ -177,7 +177,7 @@ script = ExtResource("1_gdclj")
 sprite_frames = SubResource("SpriteFrames_e15ub")
 animation = &"roll_atk"
 autoplay = "walk"
-frame_progress = 0.106267
+frame_progress = 0.26544
 
 [node name="HitBox" type="Area2D" parent="."]
 
@@ -200,3 +200,4 @@ stream = ExtResource("6_dpyd4")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_201ny")
+volume_db = -12.0

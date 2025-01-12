@@ -11,6 +11,8 @@ func _physics_process(delta: float) -> void:
 	var enemies_left = get_tree().get_nodes_in_group("enemy").size()
 	#print(enemies_left)
 	if enemies_left <= 0 and not $"../test_character".isInSpawn:
+		if $"../Doors".enabled == true:
+			$"../test_character".clearcount+=1
 		$"../Doors".enabled = false
 
 

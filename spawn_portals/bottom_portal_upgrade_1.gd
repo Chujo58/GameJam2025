@@ -11,8 +11,11 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == "test_character":
+func _on_body_entered(body: Node2D) -> void:	
+	if $"../test_character".clearcount >=6:
+		$"../test_character".position.x = 1200
+		$"../test_character".position.y = 550
+	elif body.name == "test_character":
 		var new_portal = $"..".validTopPortals[rng.randi() % $"..".validTopPortals.size()]
 		print(new_portal)
 		var new_pos = get_node("../" + new_portal).position

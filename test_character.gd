@@ -20,10 +20,12 @@ const MELEE_AREA = preload("res://melee_area.tscn")
 const GAME_OVER = preload("res://game_over.tscn")
 
 #power-ups
-var hasMelee = true
-var hasRanged = true
-var hasTail = true
+var hasMelee = false
 
+var hasRanged = false
+var hasTail = false
+
+var clearcount = 0
 var canShoot = true
 var dashing = false
 var isInSpawn = true
@@ -58,7 +60,10 @@ func get_input(input_dir = Vector2.ZERO):
 			if hasTail and not hasMelee and not hasRanged:
 				$AnimatedSprite2D.play("walking_no_claw")
 			if hasMelee:
-				$AnimatedSprite2D.play("walking_bot_claw")
+				if !hasTail:
+					$AnimatedSprite2D.play("walking_bot_claw_no_tail")
+				else:
+					$AnimatedSprite2D.play("walking_bot_claw")
 			if hasRanged:
 				pass
 	else:
@@ -69,7 +74,10 @@ func get_input(input_dir = Vector2.ZERO):
 			if hasTail and not hasMelee and not hasRanged:
 				$AnimatedSprite2D.play("idle_no_claw")
 			if hasMelee:
-				$AnimatedSprite2D.play("idle_bot_claw")
+				if !hasTail:
+					$AnimatedSprite2D.play("idle_bot_claw_no_tail")
+				else:
+					$AnimatedSprite2D.play("idle_bot_claw")
 			if hasRanged:
 				pass
 				
@@ -77,6 +85,9 @@ func get_input(input_dir = Vector2.ZERO):
 
 
 func _physics_process(delta: float) -> void:
+	if !$"../MainTheme".playing:
+		if !$"../BossTheme".playing:
+			$"../MainTheme".play()
 	movement_direction = get_input(dash_direction)
 	if movement_direction != Vector2.ZERO:
 		old_movement_direction = movement_direction
@@ -153,9 +164,16 @@ func shoot():
 func melee():
 	if hasMelee:
 		if velocity != Vector2.ZERO:
-			$AnimatedSprite2D.play("walking_no_claw")
+			if !hasTail:
+				$AnimatedSprite2D.play("walking_no_tail")
+			else:
+				$AnimatedSprite2D.play("walking_no_claw")
 		else:
-			$AnimatedSprite2D.play("idle_no_claw")
+			if !hasTail:
+				$AnimatedSprite2D.play("idle_no_tail")
+			else:
+				$AnimatedSprite2D.play("idle_no_claw")
+				
 		hasMelee = false
 		$MeleeMissAtk.play()
 		var melee_area = MELEE_AREA.instantiate()
@@ -172,6 +190,7 @@ func take_damage(value:int):
 		hasDied = true
 		$DeathByHit.play()
 		var game_over = GAME_OVER.instantiate()
+		isGameOver = true
 		$"..".add_child(game_over)
 
 func _on_shoot_timer_timeout() -> void:
