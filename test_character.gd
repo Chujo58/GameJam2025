@@ -8,6 +8,7 @@ var SPEED:int = DEFAULT_SPEED
 
 @onready var HP = 5
 const BULLET = preload("res://Bullet.tscn")
+const MELEE_AREA = preload("res://melee_area.tscn")
 
 const CLAW_STATES = ["NO_CLAW", "ONE_CLAW", "TWO_CLAW"]
 
@@ -44,6 +45,15 @@ func _physics_process(delta: float) -> void:
 	$CollisionShape2D.look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("Shoot"):
 		shoot()
+	
+	if Input.is_action_just_pressed("Melee"):
+		melee()
+	
+	
+	if get_global_mouse_position().x < position.x:
+		$AnimatedSprite2D.flip_h = false
+	else:
+		$AnimatedSprite2D.flip_h = true
 
 func _on_dash_timer_timeout() -> void:
 	SPEED = DEFAULT_SPEED
@@ -53,3 +63,7 @@ func shoot():
 	owner.add_child(bullet)
 	bullet.transform = $CollisionShape2D/Muzzle.global_transform
 	
+	
+func melee():
+	var melee_area = MELEE_AREA.instantiate()
+	$CollisionShape2D.add_child(melee_area)

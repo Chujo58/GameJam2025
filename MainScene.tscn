@@ -61,3 +61,5 @@ tile_set = SubResource("TileSet_uwrjd")
 
 [node name="test_character" parent="." instance=ExtResource("1_l0sjn")]
 position = Vector2(-23, -5)
+
+[node name="Camera2D" type="Camera2D" parent="test_character"]
