@@ -177,7 +177,7 @@ script = ExtResource("1_gdclj")
 sprite_frames = SubResource("SpriteFrames_e15ub")
 animation = &"roll_atk"
 autoplay = "walk"
-frame_progress = 0.233087
+frame_progress = 0.106267
 
 [node name="HitBox" type="Area2D" parent="."]
 

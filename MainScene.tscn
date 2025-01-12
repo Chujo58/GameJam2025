@@ -38,7 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://85o4eq3hbh0x" path="res://combat_trigger/combat_trigger_5.tscn" id="36_3dbj5"]
 [ext_resource type="PackedScene" uid="uid://b1eejhtmxbtun" path="res://combat_trigger/combat_trigger_6.tscn" id="37_jgg75"]
 [ext_resource type="PackedScene" uid="uid://b8xn56dgkbblx" path="res://combat_trigger/boss_trigger.tscn" id="38_2qtnn"]
-[ext_resource type="PackedScene" uid="uid://cec2vywe0jhpg" path="res://start_screen.tscn" id="39_7vfuw"]
+[ext_resource type="PackedScene" path="res://start_screen.tscn" id="39_7vfuw"]
 
 [node name="MainScene" type="Node2D"]
 position = Vector2(-1, 0)

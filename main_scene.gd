@@ -2,8 +2,8 @@ extends Node2D
 
 # add global variables here
 var chicken_enemy_scene = preload("res://chickenEnemy.tscn")
-#var orange_enemy_scene = preload("")
-#var fish_enemy_scene = preload("")
+var orange_enemy_scene = preload("res://orange_enemy.tscn")
+var fish_enemy_scene = preload("res://fish_enemy.tscn")
 
 var validLeftPortals = ["left_portal_spawn", "left_portal_upgrade_1", "left_portal_upgrade_2", "left_portal_combat_2", "left_portal_combat_4", "left_portal_combat_5"]
 var validRightPortals = ["right_portal_spawn", "right_portal_upgrade_1", "right_portal_upgrade_2", "right_portal_combat_3", "right_portal_combat_5", "right_portal_combat_6"]
@@ -30,9 +30,9 @@ func spawn_enemies(top_left: Vector2, bottom_right: Vector2, enemy_scenes: Array
 		if random_scene == "chicken":
 			new_enemy = chicken_enemy_scene.instantiate()
 		elif random_scene == "orange":
-			pass
+			new_enemy = orange_enemy_scene.instantiate()
 		elif random_scene == "fish":
-			pass
+			new_enemy = fish_enemy_scene.instantiate()
 		
 
 		add_child(new_enemy)

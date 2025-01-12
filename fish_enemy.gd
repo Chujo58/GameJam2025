@@ -17,6 +17,7 @@ func _physics_process(delta):
 		var dir_to_player = (player.position - position).normalized()
 		velocity = dir_to_player * speed
 		move_and_slide()
+		print(player.HP)
 		if !$AudioStreamPlayer2D.playing and player.HP >= 0:
 			$AudioStreamPlayer2D.play()
 
