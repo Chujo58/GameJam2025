@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-var HP = 10
-var speed = 50
-var enemy_type = "Chicken"
+var HP = 5
+var speed = 75
+var enemy_type = "Orange"
 
 @onready var player = $"../test_character"
 
@@ -17,7 +17,8 @@ func _physics_process(delta):
 		var dir_to_player = (player.position - position).normalized()
 		velocity = dir_to_player * speed
 		move_and_slide()
-		if !$AudioStreamPlayer2D.playing and player.HP >= 0:
+		if $AnimatedSprite2D.frame == 0 and player.HP >= 0:
+			#if !$AudioStreamPlayer2D.playing:
 			$AudioStreamPlayer2D.play()
 
 func take_damage(damage_amount: int) -> void:
@@ -28,4 +29,4 @@ func take_damage(damage_amount: int) -> void:
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.name == "test_character":
-		body.take_damage(15)
+		body.take_damage(10)

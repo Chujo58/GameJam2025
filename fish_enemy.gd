@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var HP = 10
 var speed = 50
-var enemy_type = "Chicken"
+var enemy_type = "Fish"
 
 @onready var player = $"../test_character"
 
@@ -28,4 +28,4 @@ func take_damage(damage_amount: int) -> void:
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.name == "test_character":
-		body.take_damage(15)
+		body.take_damage(5)

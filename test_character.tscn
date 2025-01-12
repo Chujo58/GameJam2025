@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cx1bec5qmam23"]
+[gd_scene load_steps=58 format=3 uid="uid://cx1bec5qmam23"]
 
 [ext_resource type="Script" path="res://test_character.gd" id="1_spkl0"]
 [ext_resource type="Texture2D" uid="uid://bnw8ytjonwism" path="res://lobterassets/lobterdashnoclaw.png" id="2_2fwx4"]
@@ -12,6 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://qvo38f4wycag" path="res://lobterassets/2THgXJ.png" id="8_k0ltq"]
 [ext_resource type="Texture2D" uid="uid://ddanc1joqlwdy" path="res://lobterassets/lobterwalk1claw(THIS).png" id="9_klptp"]
 [ext_resource type="AudioStream" uid="uid://c2qnkqwwa3u2x" path="res://sound fx/Lobster Walking.wav" id="10_5ubgf"]
+[ext_resource type="AudioStream" uid="uid://b6hsqcb6ior8t" path="res://sound fx/Dash.wav" id="13_wao3n"]
+[ext_resource type="AudioStream" uid="uid://ds11lldryt3ac" path="res://sound fx/Lobster Hurt.wav" id="14_2v0pj"]
+[ext_resource type="AudioStream" uid="uid://cjc86lkqv7vyf" path="res://sound fx/Lobster Death by Acid.wav" id="15_308sy"]
+[ext_resource type="AudioStream" uid="uid://ceayle15hojlp" path="res://sound fx/Lobster Death by Hit.wav" id="16_qrtd4"]
+[ext_resource type="AudioStream" uid="uid://bo2wh02jnktq2" path="res://sound fx/Lobster Attack Miss.wav" id="17_k2cpr"]
+[ext_resource type="AudioStream" uid="uid://mrr5k06i6gro" path="res://sound fx/Lobster Attack Hit (Soft Target).wav" id="18_h7p1v"]
+[ext_resource type="AudioStream" uid="uid://y8ovspyh0enn" path="res://sound fx/Projectile Hit.wav" id="19_hrx64"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u65pw"]
 atlas = ExtResource("3_sehvh")
@@ -374,6 +381,27 @@ stream = ExtResource("10_5ubgf")
 [node name="DashRegenCD" type="Timer" parent="."]
 wait_time = 1.5
 
+[node name="DashingAudioStream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_wao3n")
+
+[node name="TakingDamageAudioStream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_2v0pj")
+
+[node name="DeathByAcid" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_308sy")
+
+[node name="DeathByHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_qrtd4")
+
+[node name="MeleeMissAtk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_k2cpr")
+
+[node name="MeleeAtk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_h7p1v")
+
+[node name="RangedAtk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_hrx64")
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
-[connection signal="timeout" from="DashRegenCD" to="." method="_on_dash_cd_timeout"]
+[connection signal="timeout" from="DashRegenCD" to="." method="_on_dash_regen_cd_timeout"]

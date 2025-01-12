@@ -1,12 +1,12 @@
-[gd_scene load_steps=31 format=4 uid="uid://dcppwiiqi102x"]
+[gd_scene load_steps=32 format=4 uid="uid://dcppwiiqi102x"]
 
-[ext_resource type="PackedScene" uid="uid://bs6teytl2caqe" path="res://test_character.tscn" id="1_l0sjn"]
+[ext_resource type="PackedScene" uid="uid://cx1bec5qmam23" path="res://test_character.tscn" id="1_l0sjn"]
 [ext_resource type="Script" path="res://main_scene.gd" id="1_pl0dw"]
-[ext_resource type="TileSet" uid="uid://dm818qunybsxf" path="res://Tiles.tres" id="2_xjmuh"]
-[ext_resource type="PackedScene" uid="uid://dg7gvir88tt8q" path="res://tail_item.tscn" id="5_quqlt"]
-[ext_resource type="PackedScene" uid="uid://db6b0nrr3efd3" path="res://range_item.tscn" id="6_yux4b"]
+[ext_resource type="TileSet" uid="uid://cckdrkgu8m58s" path="res://Tiles.tres" id="2_xjmuh"]
+[ext_resource type="PackedScene" path="res://tail_item.tscn" id="5_quqlt"]
+[ext_resource type="PackedScene" path="res://range_item.tscn" id="6_yux4b"]
 [ext_resource type="PackedScene" uid="uid://bijr6ak455l7x" path="res://spawn_portals/right_portal_spawn.tscn" id="7_x67ma"]
-[ext_resource type="PackedScene" uid="uid://b0lcue8u1e8to" path="res://melee_item.tscn" id="7_xacal"]
+[ext_resource type="PackedScene" path="res://melee_item.tscn" id="7_xacal"]
 [ext_resource type="PackedScene" uid="uid://b8my1dkkn52fb" path="res://spawn_portals/left_portal_spawn.tscn" id="8_73fj8"]
 [ext_resource type="PackedScene" uid="uid://cujqjo4f3tm1g" path="res://spawn_portals/top_portal_spawn.tscn" id="9_4dukt"]
 [ext_resource type="PackedScene" uid="uid://cclv111l4g43e" path="res://spawn_portals/bottom_portal_spawn.tscn" id="10_kefkp"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://drp3x1dcqa7ot" path="res://spawn_portals/top_portal_combat_6.tscn" id="28_wslwa"]
 [ext_resource type="PackedScene" uid="uid://byivqk1ngghsa" path="res://spawn_portals/right_portal_combat_6.tscn" id="29_rj4t2"]
 [ext_resource type="PackedScene" uid="uid://diy5stl0pjpxl" path="res://spawn_portals/boss_portal_out.tscn" id="30_7fxgp"]
+[ext_resource type="PackedScene" uid="uid://btlwnbf7s30hc" path="res://chickenEnemy.tscn" id="32_xt8fh"]
 
 [node name="MainScene" type="Node2D"]
 position = Vector2(-1, 0)
@@ -55,7 +56,23 @@ offset_left = 6.0
 offset_top = 2.0
 offset_right = 160.0
 offset_bottom = 30.0
-max_value = 5.0
+
+[node name="DashBar" type="CanvasLayer" parent="test_character"]
+
+[node name="ProgressBar" type="ProgressBar" parent="test_character/DashBar"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -32.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+max_value = 3.0
+show_percentage = false
 
 [node name="Melee_Item" parent="." instance=ExtResource("7_xacal")]
 position = Vector2(-736, -292)
@@ -144,3 +161,6 @@ position = Vector2(7296, -94)
 
 [node name="boss_portal_out" parent="." instance=ExtResource("30_7fxgp")]
 position = Vector2(1185, 893)
+
+[node name="chickenEnemy" parent="." instance=ExtResource("32_xt8fh")]
+position = Vector2(6277, -319)
