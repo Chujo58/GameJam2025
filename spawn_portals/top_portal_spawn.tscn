@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cujqjo4f3tm1g"]
+
+[ext_resource type="Script" path="res://spawn_portals/top_portal_spawn.gd" id="1_2i2rr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_it7p6"]
+height = 76.0
+
+[node name="top_portal_spawn" type="Area2D"]
+rotation = 1.5708
+script = ExtResource("1_2i2rr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_it7p6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

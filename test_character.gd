@@ -5,17 +5,19 @@ const DEFAULT_SPEED:int = 200
 const RUN_SPEED:int = 200
 const DASH_SPEED:int = 400
 var SPEED:int = DEFAULT_SPEED
-var can_dash = true
+
 @onready var HP = 5
 const BULLET = preload("res://Bullet.tscn")
 const MELEE_AREA = preload("res://melee_area.tscn")
+const GAME_OVER = preload("res://game_over.tscn")
 
-const CLAW_STATES = ["NO_CLAW", "ONE_CLAW", "TWO_CLAW"]
-
-@onready var claw_state = CLAW_STATES[0]
+#power-ups
+var hasMelee = false
+var hasRanged = false
+var hasTail = false
 
 var canShoot = true
-
+var dashing = false
 # var last_direction
 #Sound effects
 @onready var walking_stream = $WalkingAudioStream
@@ -28,24 +30,28 @@ func get_input() -> void:
 	if velocity != Vector2.ZERO:
 		if not walking_stream.playing:
 			walking_stream.play()
-		# play_animation("mouvement")
+		if not dashing:
+			$AnimatedSprite2D.play("mouvement")
 	else:
 		walking_stream.stop()
-		# play_animation("idle")
+		if not dashing:
+			$AnimatedSprite2D.play("idle")
 
 
 func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("Run"):
+	if Input.is_action_just_pressed("Run") and hasTail:
 		$DashTimer.start()
 		SPEED = DASH_SPEED
 		velocity = Input.get_vector("Left","Right","Up","Down")*SPEED
-		# velocity = last_direction * SPEED
-	
+		$AnimatedSprite2D.play("dash_no_claw")
+		dashing = true
+
+
 	$CollisionShape2D/Muzzle.look_at(get_global_mouse_position())
-	if Input.is_action_just_pressed("Shoot"):
+	if Input.is_action_just_pressed("Shoot") and hasRanged:
 		shoot()
 	
 	if Input.is_action_just_pressed("Melee"):
@@ -60,8 +66,11 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.offset.x = 3
 		$AnimatedSprite2D.offset.y = -2
+		
+		
 func _on_dash_timer_timeout() -> void:
 	SPEED = DEFAULT_SPEED
+	dashing = false
 
 func shoot():
 	if canShoot:
@@ -73,11 +82,17 @@ func shoot():
 	
 	
 func melee():
-	var melee_area = MELEE_AREA.instantiate()
-	$CollisionShape2D/Muzzle.add_child(melee_area)
+	if hasMelee:
+		var melee_area = MELEE_AREA.instantiate()
+		$CollisionShape2D/Muzzle.add_child(melee_area)
 	
 	
-
+func take_damage(value:int):
+	HP-=value
+	$HealthBar/ProgressBar.value = HP
+	if HP <= 0:
+		var game_over = GAME_OVER.instantiate()
+		$"..".add_child(game_over)
 
 func _on_shoot_timer_timeout() -> void:
 	canShoot = true

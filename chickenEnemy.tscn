@@ -54,7 +54,7 @@ player = NodePath("")
 sprite_frames = SubResource("SpriteFrames_opjfj")
 animation = &"move"
 autoplay = "move"
-frame_progress = 0.299394
+frame_progress = 0.372439
 
 [node name="HitBox" type="Area2D" parent="."]
 
@@ -63,3 +63,5 @@ shape = SubResource("CapsuleShape2D_whi6t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_whi6t")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

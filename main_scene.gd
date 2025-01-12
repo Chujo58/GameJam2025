@@ -6,7 +6,7 @@ var chicken_enemy_scene = preload("res://chickenEnemy.tscn")
 
 # default functions that are useful
 func _ready() -> void:
-	pass
+	$test_character/HealthBar/ProgressBar.value = $test_character.HP
 
 
 func _physics_process(delta: float) -> void:

@@ -1,13 +1,12 @@
-[gd_scene load_steps=32 format=3 uid="uid://bs6teytl2caqe"]
+[gd_scene load_steps=31 format=3 uid="uid://bs6teytl2caqe"]
 
-[ext_resource type="Texture2D" uid="uid://c62jr2m3h72e2" path="res://icon.svg" id="1_7ao7v"]
 [ext_resource type="Script" path="res://test_character.gd" id="1_spkl0"]
 [ext_resource type="Texture2D" uid="uid://bnw8ytjonwism" path="res://lobterassets/lobterdashnoclaw.png" id="2_2fwx4"]
 [ext_resource type="Texture2D" uid="uid://snkdiixfyjej" path="res://lobterassets/lobterwalk.png" id="2_55ax7"]
 [ext_resource type="Texture2D" uid="uid://cglta6tjk3ogl" path="res://lobterassets/lobterdashoneclaw.png" id="3_sehvh"]
 [ext_resource type="Texture2D" uid="uid://bv1trratfm1xa" path="res://lobterassets/lobterdash.png" id="4_jxcxa"]
-[ext_resource type="Script" path="res://animated_sprite_2d.gd" id="7_852w0"]
 [ext_resource type="Texture2D" uid="uid://c7uvojjc2w7fo" path="res://lobterassets/lobidle(THIS).png" id="7_luvhc"]
+[ext_resource type="Texture2D" uid="uid://baxqw0baow0k3" path="res://lobterassets/2THgXJ.png" id="8_k0ltq"]
 [ext_resource type="AudioStream" uid="uid://c2qnkqwwa3u2x" path="res://sound fx/Lobster Walking.wav" id="10_5ubgf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qc354"]
@@ -105,9 +104,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1bqif")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash_no_claw",
-"speed": 5.0
+"speed": 14.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -122,9 +121,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s5kla")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash_one_claw",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -139,9 +138,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hk5ip")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash_two_claw",
-"speed": 10.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -158,7 +157,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -175,7 +174,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"mouvement",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x23el"]
@@ -189,11 +188,10 @@ script = ExtResource("1_spkl0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -4)
 sprite_frames = SubResource("SpriteFrames_iqltu")
-animation = &"mouvement"
+animation = &"dash_no_claw"
 autoplay = "idle"
 offset = Vector2(0, -2)
 flip_h = true
-script = ExtResource("7_852w0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -203,20 +201,18 @@ shape = SubResource("CapsuleShape2D_x23el")
 position = Vector2(7.62939e-06, -5.96046e-08)
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D/Muzzle"]
-position = Vector2(87, -1)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_7ao7v")
+position = Vector2(28, -1.16431e-06)
+rotation = 1.5708
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_k0ltq")
 
 [node name="DashTimer" type="Timer" parent="."]
-wait_time = 0.12
+wait_time = 0.2
 
 [node name="WalkingAudioStream" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_5ubgf")
 
 [node name="ShootTimer" type="Timer" parent="."]
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
-[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
-[connection signal="animation_looped" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_looped"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

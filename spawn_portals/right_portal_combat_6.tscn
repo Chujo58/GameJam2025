@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://byivqk1ngghsa"]
+
+[ext_resource type="Script" path="res://right_portal_combat_6.gd" id="1_8gnim"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xae5s"]
+height = 56.0
+
+[node name="right_portal_combat_6" type="Area2D"]
+script = ExtResource("1_8gnim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xae5s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

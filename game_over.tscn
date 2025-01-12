@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://c267p2nhpe2pe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jmh2"]
+bg_color = Color(0, 0, 0, 0.4)
+
+[node name="GameOver" type="CanvasLayer"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 397.0
+offset_bottom = 225.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0jmh2")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Restart"

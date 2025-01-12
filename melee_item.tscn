@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0lcue8u1e8to"]
+
+[ext_resource type="Script" path="res://melee_item.gd" id="1_hgiph"]
+[ext_resource type="Texture2D" uid="uid://dvt6on5xbqinn" path="res://lobterassets/itempickupscreen6.png" id="2_3fm3n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4slqw"]
+radius = 14.0357
+
+[node name="Melee_Item" type="Area2D"]
+script = ExtResource("1_hgiph")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_3fm3n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -2)
+shape = SubResource("CircleShape2D_4slqw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

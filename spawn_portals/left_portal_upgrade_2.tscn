@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4reychidd0ug"]
+
+[ext_resource type="Script" path="res://left_portal_upgrade_2.gd" id="1_rfakp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lqjaq"]
+height = 64.0
+
+[node name="left_portal_upgrade_2" type="Area2D"]
+script = ExtResource("1_rfakp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lqjaq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

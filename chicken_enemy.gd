@@ -21,3 +21,8 @@ func take_damage(damage_amount: int) -> void:
 	HP -= damage_amount
 	if HP <= 0:
 		queue_free()
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if body.name == "test_character":
+		body.take_damage(1)

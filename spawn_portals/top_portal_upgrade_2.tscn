@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://xkkeibx4rmhw"]
+
+[ext_resource type="Script" path="res://top_portal_upgrade_2.gd" id="1_pyh3b"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nnccw"]
+height = 60.0
+
+[node name="top_portal_upgrade_2" type="Area2D"]
+script = ExtResource("1_pyh3b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nnccw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
