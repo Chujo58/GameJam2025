@@ -178,8 +178,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jn31"]
-size = Vector2(22, 9)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xw04m"]
+radius = 9.82533
+height = 27.8141
 
 [node name="lobster" type="CharacterBody2D"]
 script = ExtResource("1_spkl0")
@@ -189,15 +190,14 @@ sprite_frames = SubResource("SpriteFrames_iqltu")
 animation = &"dash_one_claw"
 autoplay = "idle"
 frame_progress = 0.415281
+flip_h = true
 script = ExtResource("7_852w0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("2_55ax7")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 7.5)
-shape = SubResource("RectangleShape2D_8jn31")
+position = Vector2(-1.86242e-09, -1.19209e-07)
+rotation = -1.57716
+scale = Vector2(0.814853, 1.29428)
+shape = SubResource("CapsuleShape2D_xw04m")
 
 [node name="Muzzle" type="Marker2D" parent="CollisionShape2D"]
 position = Vector2(7.62939e-06, -5.96046e-08)
