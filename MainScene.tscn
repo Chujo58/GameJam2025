@@ -152,7 +152,7 @@ position = Vector2(7296, -94)
 position = Vector2(1185, 893)
 
 [node name="combat_trigger_3" parent="." instance=ExtResource("31_gx1rb")]
-position = Vector2(2354, -74)
+position = Vector2(2349, -83)
 scale = Vector2(0.68, 0.78)
 
 [node name="combat_trigger_1" parent="." instance=ExtResource("32_fupx0")]
@@ -160,19 +160,19 @@ position = Vector2(1948, -1506)
 scale = Vector2(2.35, 2.25)
 
 [node name="combat_trigger_2" parent="." instance=ExtResource("33_m6moe")]
-position = Vector2(3587, -1443)
+position = Vector2(3596, -1457)
 scale = Vector2(24.5, 24.5)
 
 [node name="bottom_portal_combat_2" parent="." instance=ExtResource("34_jnpvv")]
 position = Vector2(3584, -703)
 
 [node name="combat_trigger_4" parent="." instance=ExtResource("35_jwx3k")]
-position = Vector2(4998, -2840)
+position = Vector2(5005, -2834)
 scale = Vector2(24.5, 24.5)
 
 [node name="combat_trigger_5" parent="." instance=ExtResource("36_3dbj5")]
 position = Vector2(5663, -1791)
-scale = Vector2(24, 25.2)
+scale = Vector2(23, 25.2)
 
 [node name="combat_trigger_6" parent="." instance=ExtResource("37_jgg75")]
 position = Vector2(6454, -85)
