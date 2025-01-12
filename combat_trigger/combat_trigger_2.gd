@@ -9,7 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	var enemies_left = get_tree().get_nodes_in_group("enemy").size()
-	print(enemies_left)
+	#print(enemies_left)
 	if enemies_left <= 0 and not $"../test_character".isInSpawn:
 		$"../Doors".enabled = false
 
@@ -19,7 +19,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "test_character":
 		print("entered combat room 2")
 		$"../Doors".enabled = true
-		$"..".spawn_enemies(Vector2(3350, 1675), Vector2(3825,1200), enemy_arr)
+		$"..".spawn_enemies(Vector2(3350, -1675), Vector2(3825,-1200), enemy_arr)
 		#close door
 		#spawn enemies
 	
