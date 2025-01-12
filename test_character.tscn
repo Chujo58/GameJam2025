@@ -178,8 +178,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jn31"]
-size = Vector2(22, 9)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xw04m"]
+radius = 4.0
+height = 15.9869
 
 [node name="lobster" type="CharacterBody2D"]
 script = ExtResource("1_spkl0")
@@ -196,8 +197,10 @@ visible = false
 texture = ExtResource("2_55ax7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 7.5)
-shape = SubResource("RectangleShape2D_8jn31")
+position = Vector2(10, 4)
+rotation = -1.57716
+scale = Vector2(0.814853, 1.29428)
+shape = SubResource("CapsuleShape2D_xw04m")
 
 [node name="Muzzle" type="Marker2D" parent="CollisionShape2D"]
 position = Vector2(7.62939e-06, -5.96046e-08)
