@@ -42,5 +42,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_animation_looped() -> void:
 	if "dash" in current_animation:
-		print(old_animation)
+		# print(old_animation)
 		play_animation(old_animation)
