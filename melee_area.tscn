@@ -1,13 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://djxqlx0k37u8t"]
+[gd_scene load_steps=8 format=3 uid="uid://djxqlx0k37u8t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_weqg8"]
+[ext_resource type="Script" path="res://melee_area.gd" id="1_6rvc3"]
+[ext_resource type="Texture2D" uid="uid://tlp6jbrq41m2" path="res://lobterassets/lobterslash.png" id="2_ro5dx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhryr"]
+atlas = ExtResource("2_ro5dx")
+region = Rect2(0, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl3e4"]
+atlas = ExtResource("2_ro5dx")
+region = Rect2(46, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd6m8"]
+atlas = ExtResource("2_ro5dx")
+region = Rect2(92, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_186wr"]
+atlas = ExtResource("2_ro5dx")
+region = Rect2(138, 0, 46, 30)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3wojk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhryr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl3e4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd6m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_186wr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
 
 [node name="melee_area" type="Area2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_weqg8")
+script = ExtResource("1_6rvc3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_3wojk")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-16, 3)
+polygon = PackedVector2Array(10, 10, -5, 7, -8, 0, -7, -8, -3, -12, 1, -15, -1, -5, -1, -1, 2, 5)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

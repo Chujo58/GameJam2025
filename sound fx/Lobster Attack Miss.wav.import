@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bo2wh02jnktq2"
+path="res://.godot/imported/Lobster Attack Miss.wav-bd5c1257255a2d820231fb522bff5711.sample"
+
+[deps]
+
+source_file="res://sound fx/Lobster Attack Miss.wav"
+dest_files=["res://.godot/imported/Lobster Attack Miss.wav-bd5c1257255a2d820231fb522bff5711.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
