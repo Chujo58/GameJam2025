@@ -9,7 +9,12 @@ var SPEED:int = DEFAULT_SPEED
 @onready var HP = 5
 const BULLET = preload("res://Bullet.tscn")
 
+const CLAW_STATES = ["NO_CLAW", "ONE_CLAW", "TWO_CLAW"]
+
+@onready var claw_state = CLAW_STATES[0]
+
 # var last_direction
+#Sound effects
 @onready var walking_stream = $WalkingAudioStream
 
 func get_input() -> void:
@@ -20,8 +25,10 @@ func get_input() -> void:
 	if velocity != Vector2.ZERO:
 		if not walking_stream.playing:
 			walking_stream.play()
+		# play_animation("mouvement")
 	else:
 		walking_stream.stop()
+		# play_animation("idle")
 
 
 func _physics_process(delta: float) -> void:

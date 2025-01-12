@@ -60,4 +60,10 @@ tile_map_data = PackedByteArray("AAAYAPD/AwABAAMAAAAYAPH/AwAAAAEAAAAYAPL/AwAAAAE
 tile_set = SubResource("TileSet_uwrjd")
 
 [node name="test_character" parent="." instance=ExtResource("1_l0sjn")]
+<<<<<<< Updated upstream
 position = Vector2(-23, -5)
+=======
+position = Vector2(487, 32)
+
+[node name="Camera2D" type="Camera2D" parent="test_character"]
+>>>>>>> Stashed changes
