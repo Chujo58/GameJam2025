@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	var enemy_arr:Array[String] = ["chicken"]
+	var enemy_arr:Array[String] = ["orange", "fish"]
 	if body.name == "test_character":
 		print("entered combat room 3")
 		$"../Doors".enabled = true
