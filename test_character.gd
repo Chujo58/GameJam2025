@@ -52,8 +52,12 @@ func _physics_process(delta: float) -> void:
 	
 	if get_global_mouse_position().x < position.x:
 		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.offset.x = -3
+		$AnimatedSprite2D.offset.y = -2
 	else:
 		$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.offset.x = 3
+		$AnimatedSprite2D.offset.y = 0
 
 func _on_dash_timer_timeout() -> void:
 	SPEED = DEFAULT_SPEED
