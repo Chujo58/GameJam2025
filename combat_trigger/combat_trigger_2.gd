@@ -19,7 +19,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "test_character":
 		print("entered combat room 2")
 		$"../Doors".enabled = true
-		$"..".spawn_enemies(Vector2(3350, 1675), Vector2(3825,1200), enemy_arr)
+		$"..".spawn_enemies(Vector2(3350, -1675), Vector2(3825,-1200), enemy_arr)
 		#close door
 		#spawn enemies
 	
