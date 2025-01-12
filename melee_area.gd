@@ -8,6 +8,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if $"../../..".velocity != Vector2.ZERO:
+		$"../../../AnimatedSprite2D".play("walking_no_claw")
+	else:
+		$"../../../AnimatedSprite2D".play("idle_no_claw")
+		
 	pass
 
 
