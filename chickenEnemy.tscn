@@ -53,7 +53,7 @@ player = NodePath("")
 sprite_frames = SubResource("SpriteFrames_opjfj")
 animation = &"move"
 autoplay = "move"
-frame_progress = 0.703664
+frame_progress = 0.781983
 
 [node name="HitBox" type="Area2D" parent="."]
 
