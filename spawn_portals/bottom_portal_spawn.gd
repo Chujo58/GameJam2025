@@ -1,10 +1,9 @@
 extends Area2D
 
-
+var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	rng.randomize()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -13,6 +12,8 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "test_character":
-		print("TPing to top portal")
-		#tp to somewhere
-		pass
+		var new_portal = $"..".validTopPortals[rng.randi() % $"..".validTopPortals.size()]
+		print(new_portal)
+		var new_pos = get_node("../" + new_portal).position
+		$"../test_character".position.x = new_pos.x
+		$"../test_character".position.y = new_pos.y + 50

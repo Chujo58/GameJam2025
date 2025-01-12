@@ -26,6 +26,9 @@ var hasTail = true
 
 var canShoot = true
 var dashing = false
+var isInSpawn = true
+
+var isGameOver = true
 
 var hasDied = false
 
@@ -77,9 +80,10 @@ func _physics_process(delta: float) -> void:
 	movement_direction = get_input(dash_direction)
 	if movement_direction != Vector2.ZERO:
 		old_movement_direction = movement_direction
-	move_and_slide()
+	if not isGameOver:
+		move_and_slide()
 	
-	if Input.is_action_just_pressed("Run") and hasTail and current_dash_charges > 0:
+	if Input.is_action_just_pressed("Run") and hasTail and current_dash_charges > 0 and not isGameOver:
 		$DashTimer.start()
 		SPEED = DASH_SPEED
 		
@@ -105,10 +109,10 @@ func _physics_process(delta: float) -> void:
 	$DashBar/ProgressBar.value = current_dash_charges - round($DashRegenCD.time_left/$DashRegenCD.wait_time * 100)/100 + 1
 
 	$CollisionShape2D/Muzzle.look_at(get_global_mouse_position())
-	if Input.is_action_just_pressed("Shoot") and hasRanged:
+	if Input.is_action_just_pressed("Shoot") and hasRanged and not isGameOver:
 		shoot()
 	
-	if Input.is_action_just_pressed("Melee"):
+	if Input.is_action_just_pressed("Melee") and not isGameOver:
 		melee()
 		hasMelee = true
 	

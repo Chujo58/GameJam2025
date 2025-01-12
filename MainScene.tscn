@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dcppwiiqi102x"]
+[gd_scene load_steps=40 format=4 uid="uid://dcppwiiqi102x"]
 
 [ext_resource type="PackedScene" uid="uid://cx1bec5qmam23" path="res://test_character.tscn" id="1_l0sjn"]
 [ext_resource type="Script" path="res://main_scene.gd" id="1_pl0dw"]
@@ -30,7 +30,15 @@
 [ext_resource type="PackedScene" uid="uid://drp3x1dcqa7ot" path="res://spawn_portals/top_portal_combat_6.tscn" id="28_wslwa"]
 [ext_resource type="PackedScene" uid="uid://byivqk1ngghsa" path="res://spawn_portals/right_portal_combat_6.tscn" id="29_rj4t2"]
 [ext_resource type="PackedScene" uid="uid://diy5stl0pjpxl" path="res://spawn_portals/boss_portal_out.tscn" id="30_7fxgp"]
-[ext_resource type="PackedScene" uid="uid://btlwnbf7s30hc" path="res://chickenEnemy.tscn" id="32_xt8fh"]
+[ext_resource type="PackedScene" uid="uid://kebki6edtuuu" path="res://combat_trigger/combat_trigger_3.tscn" id="31_gx1rb"]
+[ext_resource type="PackedScene" uid="uid://csr5gdk0caghp" path="res://combat_trigger/combat_trigger_1.tscn" id="32_fupx0"]
+[ext_resource type="PackedScene" uid="uid://ci8vfxplmjn7" path="res://combat_trigger/combat_trigger_2.tscn" id="33_m6moe"]
+[ext_resource type="PackedScene" uid="uid://bgt3i4px6q7os" path="res://spawn_portals/bottom_portal_combat_2.tscn" id="34_jnpvv"]
+[ext_resource type="PackedScene" uid="uid://cml6k1qitoqtn" path="res://combat_trigger/combat_trigger_4.tscn" id="35_jwx3k"]
+[ext_resource type="PackedScene" uid="uid://85o4eq3hbh0x" path="res://combat_trigger/combat_trigger_5.tscn" id="36_3dbj5"]
+[ext_resource type="PackedScene" uid="uid://b1eejhtmxbtun" path="res://combat_trigger/combat_trigger_6.tscn" id="37_jgg75"]
+[ext_resource type="PackedScene" uid="uid://b8xn56dgkbblx" path="res://combat_trigger/boss_trigger.tscn" id="38_2qtnn"]
+[ext_resource type="PackedScene" uid="uid://cec2vywe0jhpg" path="res://start_screen.tscn" id="39_7vfuw"]
 
 [node name="MainScene" type="Node2D"]
 position = Vector2(-1, 0)
@@ -45,7 +53,7 @@ tile_map_data = PackedByteArray("AAAYAPD/AwABAAMAAAAYAPH/AwAAAAEAAAAYAPL/AwAAAAE
 tile_set = ExtResource("2_xjmuh")
 
 [node name="test_character" parent="." instance=ExtResource("1_l0sjn")]
-position = Vector2(6451, -117)
+position = Vector2(-740, -249)
 
 [node name="Camera2D" type="Camera2D" parent="test_character"]
 
@@ -78,7 +86,7 @@ show_percentage = false
 position = Vector2(-736, -292)
 
 [node name="Doors" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AADm//b/AwAAAAEAAADm//f/AwAAAAEAAADr//b/AwAAAAAAAADr//f/AwAAAAAAAADo//n/AwAAAAIAAADp//n/AwAAAAIAAADo//T/AwAAAAMAAADp//T/AwAAAAMAAAA=")
+tile_map_data = PackedByteArray("AADm//b/AwAAAAEAAADm//f/AwAAAAEAAADr//b/AwAAAAAAAADr//f/AwAAAAAAAADo//n/AwAAAAIAAADp//n/AwAAAAIAAADo//T/AwAAAAMAAADp//T/AwAAAAMAAABJAAYAAwAAAAIAAABKAAYAAwAAAAIAAABSAP7/AwAAAAAAAABSAP3/AwAAAAAAAAA8ANn/AwAAAAIAAAA9ANn/AwAAAAIAAAA8AMj/AwAAAAMAAAA9AMj/AwAAAAMAAABvANv/AwAAAAIAAABwANv/AwAAAAIAAABnANL/AwAAAAEAAABnANP/AwAAAAEAAACoAMf/AwAAAAEAAACoAMj/AwAAAAEAAAC5AMf/AwAAAAAAAAC5AMj/AwAAAAAAAADJAPT/AwAAAAMAAADKAPT/AwAAAAMAAADSAPz/AwAAAAAAAADSAP3/AwAAAAAAAACTAKb/AwAAAAEAAACTAKf/AwAAAAEAAACbAJ7/AwAAAAMAAACcAJ7/AwAAAAMAAAA=")
 tile_set = ExtResource("2_xjmuh")
 
 [node name="range_item" parent="." instance=ExtResource("6_yux4b")]
@@ -132,9 +140,6 @@ position = Vector2(1953, -705)
 [node name="left_portal_combat_2" parent="." instance=ExtResource("21_f1ssb")]
 position = Vector2(2688, -1441)
 
-[node name="bottom_portal_upgrade_3" parent="." instance=ExtResource("16_k7jts")]
-position = Vector2(3584, -608)
-
 [node name="right_portal_combat_3" parent="." instance=ExtResource("22_en4of")]
 position = Vector2(3291, -65)
 
@@ -162,5 +167,35 @@ position = Vector2(7296, -94)
 [node name="boss_portal_out" parent="." instance=ExtResource("30_7fxgp")]
 position = Vector2(1185, 893)
 
-[node name="chickenEnemy" parent="." instance=ExtResource("32_xt8fh")]
-position = Vector2(6277, -319)
+[node name="combat_trigger_3" parent="." instance=ExtResource("31_gx1rb")]
+position = Vector2(2349, -83)
+scale = Vector2(0.68, 0.78)
+
+[node name="combat_trigger_1" parent="." instance=ExtResource("32_fupx0")]
+position = Vector2(1948, -1506)
+scale = Vector2(2.35, 2.25)
+
+[node name="combat_trigger_2" parent="." instance=ExtResource("33_m6moe")]
+position = Vector2(3596, -1457)
+scale = Vector2(24.5, 24.5)
+
+[node name="bottom_portal_combat_2" parent="." instance=ExtResource("34_jnpvv")]
+position = Vector2(3584, -703)
+
+[node name="combat_trigger_4" parent="." instance=ExtResource("35_jwx3k")]
+position = Vector2(5005, -2834)
+scale = Vector2(24.5, 24.5)
+
+[node name="combat_trigger_5" parent="." instance=ExtResource("36_3dbj5")]
+position = Vector2(5663, -1791)
+scale = Vector2(23, 25.2)
+
+[node name="combat_trigger_6" parent="." instance=ExtResource("37_jgg75")]
+position = Vector2(6454, -85)
+scale = Vector2(24.5, 24.5)
+
+[node name="boss_trigger" parent="." instance=ExtResource("38_2qtnn")]
+position = Vector2(1185, -104)
+scale = Vector2(38, 37)
+
+[node name="start_screen" parent="." instance=ExtResource("39_7vfuw")]
