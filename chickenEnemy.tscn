@@ -46,6 +46,7 @@ height = 38.0
 [node name="chickenEnemy" type="CharacterBody2D" node_paths=PackedStringArray("player")]
 collision_layer = 2
 collision_mask = 5
+motion_mode = 1
 script = ExtResource("1_oictt")
 player = NodePath("")
 
@@ -53,7 +54,7 @@ player = NodePath("")
 sprite_frames = SubResource("SpriteFrames_opjfj")
 animation = &"move"
 autoplay = "move"
-frame_progress = 0.781983
+frame_progress = 0.299394
 
 [node name="HitBox" type="Area2D" parent="."]
 

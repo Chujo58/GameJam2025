@@ -5,7 +5,7 @@ const DEFAULT_SPEED:int = 200
 const RUN_SPEED:int = 200
 const DASH_SPEED:int = 400
 var SPEED:int = DEFAULT_SPEED
-
+var can_dash = true
 @onready var HP = 5
 const BULLET = preload("res://Bullet.tscn")
 const MELEE_AREA = preload("res://melee_area.tscn")
@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Input.get_vector("Left","Right","Up","Down")*SPEED
 		# velocity = last_direction * SPEED
 	
-	$CollisionShape2D.look_at(get_global_mouse_position())
+	$CollisionShape2D/Muzzle.look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("Shoot"):
 		shoot()
 	
@@ -54,9 +54,12 @@ func _physics_process(delta: float) -> void:
 	
 	if get_global_mouse_position().x < position.x:
 		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.offset.x = -3
+		$AnimatedSprite2D.offset.y = -2
 	else:
 		$AnimatedSprite2D.flip_h = true
-
+		$AnimatedSprite2D.offset.x = 3
+		$AnimatedSprite2D.offset.y = -2
 func _on_dash_timer_timeout() -> void:
 	SPEED = DEFAULT_SPEED
 
@@ -71,7 +74,9 @@ func shoot():
 	
 func melee():
 	var melee_area = MELEE_AREA.instantiate()
-	$CollisionShape2D.add_child(melee_area)
+	$CollisionShape2D/Muzzle.add_child(melee_area)
+	
+	
 
 
 func _on_shoot_timer_timeout() -> void:

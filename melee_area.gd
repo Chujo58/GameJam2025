@@ -11,11 +11,14 @@ func _physics_process(delta: float) -> void:
 	pass
 
 
-func _on_area_entered(area: Area2D) -> void:
-	if area != null:
-		if area.owner != null:
-			if "Enemy" in area.owner.name:
-				area.owner.HP-=5
+
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	print(body)
+	if body.is_in_group("enemy"):
+		
+		body.take_damage(2)

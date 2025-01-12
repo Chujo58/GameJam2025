@@ -84,5 +84,12 @@ position = Vector2(-23, -5)
 
 [node name="Camera2D" type="Camera2D" parent="test_character"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="test_character"]
+
+[node name="ProgressBar" type="ProgressBar" parent="test_character/CanvasLayer"]
+offset_right = 4.0
+offset_bottom = 27.0
+
 [node name="chickenEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_2nu7n")]
+position = Vector2(114, -11)
 player = NodePath("../test_character")
