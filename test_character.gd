@@ -19,12 +19,15 @@ const MELEE_AREA = preload("res://melee_area.tscn")
 const GAME_OVER = preload("res://game_over.tscn")
 
 #power-ups
-var hasMelee = true
+var hasMelee = false
 var hasRanged = false
-var hasTail = true
+var hasTail = false
 
 var canShoot = true
 var dashing = false
+var isInSpawn = true
+
+var isGameOver = true
 # var last_direction
 #Sound effects
 
@@ -39,7 +42,6 @@ func get_input(input_dir = Vector2.ZERO):
 
 	if velocity != Vector2.ZERO:
 		if not $WalkingAudioStream.playing:
-			print("walking sound")
 			$WalkingAudioStream.play()
 		if not dashing:
 			if !hasTail:
@@ -51,7 +53,6 @@ func get_input(input_dir = Vector2.ZERO):
 			if hasRanged:
 				pass
 	else:
-		print("idling sound")
 		$WalkingAudioStream.stop()
 		if not dashing:
 			if !hasTail:
@@ -70,9 +71,10 @@ func _physics_process(delta: float) -> void:
 	movement_direction = get_input(dash_direction)
 	if movement_direction != Vector2.ZERO:
 		old_movement_direction = movement_direction
-	move_and_slide()
+	if not isGameOver:
+		move_and_slide()
 	
-	if Input.is_action_just_pressed("Run") and hasTail:
+	if Input.is_action_just_pressed("Run") and hasTail and not isGameOver:
 		$DashTimer.start()
 		SPEED = DASH_SPEED
 		velocity = Input.get_vector("Left","Right","Up","Down")*SPEED
@@ -88,10 +90,10 @@ func _physics_process(delta: float) -> void:
 
 
 	$CollisionShape2D/Muzzle.look_at(get_global_mouse_position())
-	if Input.is_action_just_pressed("Shoot") and hasRanged:
+	if Input.is_action_just_pressed("Shoot") and hasRanged and not isGameOver:
 		shoot()
 	
-	if Input.is_action_just_pressed("Melee"):
+	if Input.is_action_just_pressed("Melee") and not isGameOver:
 		melee()
 		hasMelee = true
 	

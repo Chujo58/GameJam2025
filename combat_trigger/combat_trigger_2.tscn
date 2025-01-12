@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci8vfxplmjn7"]
+
+[ext_resource type="Script" path="res://combat_trigger/combat_trigger_2.gd" id="1_ii58e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovv6w"]
+
+[node name="combat_trigger_2" type="Area2D"]
+script = ExtResource("1_ii58e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ovv6w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -3,7 +3,7 @@ extends CharacterBody2D
 var HP = 10
 var speed = 50
 
-@export var player: Node2D
+@onready var player = $"../test_character"
 
 
 func _ready() -> void:
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	if player:
-		var dir_to_player = (player.global_position - global_position).normalized()
+		var dir_to_player = (player.position - position).normalized()
 		velocity = dir_to_player * speed
 		move_and_slide()
 
