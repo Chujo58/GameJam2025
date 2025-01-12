@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bp67yd7yo2rfp" path="res://texture_tiles/wall1.png" id="3_ch6iw"]
 [ext_resource type="Texture2D" uid="uid://bg82isypxmrna" path="res://Wallset.png" id="3_iuhls"]
 [ext_resource type="Texture2D" uid="uid://b57kfte7w0cbf" path="res://texture_tiles/floor1.png" id="4_qmh8q"]
-[ext_resource type="PackedScene" uid="uid://btlwnbf7s30hc" path="res://chickenEnemy.tscn" id="5_3k8m0"]
+[ext_resource type="PackedScene" uid="uid://btlwnbf7s30hc" path="res://chickenEnemy.tscn" id="6_2nu7n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v11to"]
 
@@ -83,3 +83,6 @@ tile_set = SubResource("TileSet_uwrjd")
 position = Vector2(-23, -5)
 
 [node name="Camera2D" type="Camera2D" parent="test_character"]
+
+[node name="chickenEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_2nu7n")]
+player = NodePath("../test_character")
