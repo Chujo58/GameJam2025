@@ -20,7 +20,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "test_character":
 		print("entered boss room")
 		$"../Doors".enabled = true
-		$"..".spawn_enemies(Vector2(10000, -300), Vector2(1300,0), enemy_arr)
+		$"..".spawn_enemies(Vector2(1000, -300), Vector2(1300,0), enemy_arr)
 		$"../MainTheme".stop()
 		$"../BossTheme".play()
 		#close door

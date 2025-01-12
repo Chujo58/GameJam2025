@@ -72,7 +72,7 @@ shape = SubResource("CapsuleShape2D_whi6t")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamWAV_i2d3f")
-volume_db = 10.0
+volume_db = -12.0
 autoplay = true
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

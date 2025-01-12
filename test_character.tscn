@@ -568,9 +568,11 @@ stream = ExtResource("17_k2cpr")
 
 [node name="MeleeAtk" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_h7p1v")
+volume_db = -10.0
 
 [node name="RangedAtk" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_hrx64")
+volume_db = -10.0
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

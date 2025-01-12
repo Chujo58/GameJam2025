@@ -9,7 +9,7 @@ var boss_enemy_scene = preload("res://boss.tscn")
 var validLeftPortals = ["left_portal_spawn", "left_portal_upgrade_1", "left_portal_upgrade_2", "left_portal_combat_2", "left_portal_combat_4", "left_portal_combat_5"]
 var validRightPortals = ["right_portal_spawn", "right_portal_upgrade_1", "right_portal_upgrade_2", "right_portal_combat_3", "right_portal_combat_5", "right_portal_combat_6"]
 var validTopPortals = ["top_portal_spawn", "top_portal_upgrade_1", "top_portal_upgrade_2", "top_portal_combat_1", "top_portal_combat_4", "top_portal_combat_6"]
-var validBottomPortals = ["bottom_portal_spawn", "bottom_portal_upgrade_1", "bottom_portal_upgrade_2", "bottom_portal_combat_1", "bottom_portal_combat_2", "bottom_portal_upgrade_3"]
+var validBottomPortals = ["bottom_portal_spawn", "bottom_portal_upgrade_1", "bottom_portal_upgrade_2", "bottom_portal_combat_1", "bottom_portal_combat_2"]
 var enemy_spawned = 0
 var rng = RandomNumberGenerator.new()
 # default functions that are useful

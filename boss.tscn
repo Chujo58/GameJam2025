@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d1ny2441nbspt"]
+[gd_scene load_steps=30 format=3 uid="uid://dlrns5bxggid"]
 
 [ext_resource type="Texture2D" uid="uid://cq5jkhtvnmjxc" path="res://lobterassets/lbossroll.png" id="1_abwmp"]
 [ext_resource type="Script" path="res://boss.gd" id="1_gdclj"]
@@ -115,7 +115,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_twkyx")
 }],
-"loop": true,
+"loop": false,
 "name": &"roll_atk",
 "speed": 5.0
 }, {
@@ -144,7 +144,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_alldq")
 }],
-"loop": true,
+"loop": false,
 "name": &"thorn_atk",
 "speed": 7.0
 }, {
@@ -161,7 +161,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rfhvv")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk",
 "speed": 7.0
 }]
@@ -171,13 +171,15 @@ radius = 23.0
 height = 58.0
 
 [node name="Boss" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
 script = ExtResource("1_gdclj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e15ub")
-animation = &"roll_atk"
+animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.26544
 
 [node name="HitBox" type="Area2D" parent="."]
 
@@ -201,3 +203,6 @@ stream = ExtResource("6_dpyd4")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_201ny")
 volume_db = -12.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

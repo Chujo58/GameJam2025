@@ -7,7 +7,7 @@ const DASH_SPEED:int = 400
 var SPEED:int = DEFAULT_SPEED
 
 const MAX_DASH_CHARGES = 3
-const MAX_HP = 100
+const MAX_HP = 750
 
 var movement_direction = Vector2.ZERO
 var old_movement_direction = Vector2.ZERO
@@ -37,6 +37,8 @@ var hasDied = false
 func _ready():
 	$DashBar/ProgressBar.max_value = MAX_DASH_CHARGES
 	$DashBar/ProgressBar.value = current_dash_charges
+	$HealthBar/ProgressBar.max_value = MAX_HP
+	$"../MainTheme".play()
 
 func get_input(input_dir = Vector2.ZERO):
 	var input_direction = Input.get_vector("Left","Right","Up","Down")
@@ -85,9 +87,6 @@ func get_input(input_dir = Vector2.ZERO):
 
 
 func _physics_process(delta: float) -> void:
-	if !$"../MainTheme".playing:
-		if !$"../BossTheme".playing:
-			$"../MainTheme".play()
 	movement_direction = get_input(dash_direction)
 	if movement_direction != Vector2.ZERO:
 		old_movement_direction = movement_direction

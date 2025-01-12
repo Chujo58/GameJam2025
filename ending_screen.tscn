@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b86d2notwmoky"]
+
+[ext_resource type="Texture2D" uid="uid://cftt512djcb7l" path="res://lobterassets/creditsstill.png" id="1_8mevg"]
+
+[node name="ending_screen" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 387.0
+offset_bottom = 226.0
+texture = ExtResource("1_8mevg")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_right = 387.0
+offset_bottom = 226.0

@@ -65,7 +65,7 @@ shape = SubResource("CapsuleShape2D_sa602")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3dsy0")
 autoplay = "default"
-frame_progress = 0.333691
+frame_progress = 0.685192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
@@ -75,7 +75,7 @@ shape = SubResource("CapsuleShape2D_sa602")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamWAV_mr8fc")
-volume_db = -25.0
+volume_db = -28.0
 autoplay = true
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
