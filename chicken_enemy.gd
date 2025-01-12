@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var HP = 10
-var speed = 100
+var speed = 50
 
 @export var player: Node2D
 

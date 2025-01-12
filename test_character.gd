@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 # Running/moving constants
-const DEFAULT_SPEED:int = 300
-const RUN_SPEED:int = 450
-const DASH_SPEED:int = -1200
+const DEFAULT_SPEED:int = 200
+const RUN_SPEED:int = 200
+const DASH_SPEED:int = 400
 var SPEED:int = DEFAULT_SPEED
 
 @onready var HP = 5
@@ -13,6 +13,8 @@ const MELEE_AREA = preload("res://melee_area.tscn")
 const CLAW_STATES = ["NO_CLAW", "ONE_CLAW", "TWO_CLAW"]
 
 @onready var claw_state = CLAW_STATES[0]
+
+var canShoot = true
 
 # var last_direction
 #Sound effects
@@ -59,11 +61,18 @@ func _on_dash_timer_timeout() -> void:
 	SPEED = DEFAULT_SPEED
 
 func shoot():
-	var bullet = BULLET.instantiate()
-	owner.add_child(bullet)
-	bullet.transform = $CollisionShape2D/Muzzle.global_transform
+	if canShoot:
+		var bullet = BULLET.instantiate()
+		owner.add_child(bullet)
+		bullet.transform = $CollisionShape2D/Muzzle.global_transform
+		$ShootTimer.start()
+		canShoot = false
 	
 	
 func melee():
 	var melee_area = MELEE_AREA.instantiate()
 	$CollisionShape2D.add_child(melee_area)
+
+
+func _on_shoot_timer_timeout() -> void:
+	canShoot = true

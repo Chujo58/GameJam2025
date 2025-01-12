@@ -3,10 +3,6 @@
 [ext_resource type="Script" path="res://chicken_enemy.gd" id="1_oictt"]
 [ext_resource type="Texture2D" uid="uid://bt6rtlew7dybo" path="res://lobterassets/lchicken.png" id="2_rowqr"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_whi6t"]
-radius = 65.0
-height = 130.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_lf0fv"]
 atlas = ExtResource("2_rowqr")
 region = Rect2(0, 0, 32, 32)
@@ -43,17 +39,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_whi6t"]
+radius = 12.0
+height = 38.0
+
 [node name="chickenEnemy" type="CharacterBody2D" node_paths=PackedStringArray("player")]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 5
 script = ExtResource("1_oictt")
 player = NodePath("")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_whi6t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_opjfj")
 animation = &"move"
 autoplay = "move"
-frame_progress = 0.325848
+frame_progress = 0.778031
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CapsuleShape2D_whi6t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_whi6t")

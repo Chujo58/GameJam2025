@@ -1,23 +1,60 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3q7p7gqmqa0t"]
+[gd_scene load_steps=9 format=3 uid="uid://b3q7p7gqmqa0t"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_o4rde"]
-[ext_resource type="Texture2D" uid="uid://c62jr2m3h72e2" path="res://icon.svg" id="2_p3j4h"]
+[ext_resource type="Texture2D" uid="uid://dypmaygasqeek" path="res://lobterassets/lobterprojectile.png" id="2_cl7ps"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e4xwe"]
-radius = 16.0
-height = 34.0
+radius = 5.0
+height = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocgdl"]
+atlas = ExtResource("2_cl7ps")
+region = Rect2(0, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0mhp"]
+atlas = ExtResource("2_cl7ps")
+region = Rect2(46, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj4vs"]
+atlas = ExtResource("2_cl7ps")
+region = Rect2(92, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0vg7"]
+atlas = ExtResource("2_cl7ps")
+region = Rect2(138, 0, 46, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4ueb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocgdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0mhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj4vs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0vg7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_o4rde")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_p3j4h")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_e4xwe")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 8)
+sprite_frames = SubResource("SpriteFrames_u4ueb")
+autoplay = "default"
+frame_progress = 0.317424
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
