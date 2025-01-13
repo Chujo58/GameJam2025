@@ -21,7 +21,7 @@ func _on_restart_pressed():
 	$"../test_character".hasTail = false
 
 	$"../test_character".clearcount = 0
-	$"../test_character".anShoot = true
+	$"../test_character".canShoot = true
 	$"../test_character".dashing = false
 	$"../test_character".isInSpawn = true
 
