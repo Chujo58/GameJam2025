@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3q7p7gqmqa0t"]
+[gd_scene load_steps=10 format=3 uid="uid://b3q7p7gqmqa0t"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_o4rde"]
 [ext_resource type="Texture2D" uid="uid://dypmaygasqeek" path="res://lobterassets/lobterprojectile.png" id="2_cl7ps"]
+[ext_resource type="AudioStream" uid="uid://y8ovspyh0enn" path="res://sound fx/Projectile Hit.wav" id="3_wagsu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e4xwe"]
 radius = 5.0
@@ -56,5 +57,9 @@ position = Vector2(5, 8)
 sprite_frames = SubResource("SpriteFrames_u4ueb")
 autoplay = "default"
 frame_progress = 0.317424
+
+[node name="EnemyHitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wagsu")
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

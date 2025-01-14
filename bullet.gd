@@ -16,6 +16,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		#print(body)
 		body.take_damage(damage)
+		$EnemyHitSound.play() #Play EnemyHitSound when 
 		current_pierce_count += 1
 		if current_pierce_count >= max_pierce_count:
 			queue_free()

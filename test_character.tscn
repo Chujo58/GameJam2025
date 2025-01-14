@@ -23,7 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://ceayle15hojlp" path="res://sound fx/Lobster Death by Hit.wav" id="16_qrtd4"]
 [ext_resource type="AudioStream" uid="uid://bo2wh02jnktq2" path="res://sound fx/Lobster Attack Miss.wav" id="17_k2cpr"]
 [ext_resource type="AudioStream" uid="uid://mrr5k06i6gro" path="res://sound fx/Lobster Attack Hit (Soft Target).wav" id="18_h7p1v"]
-[ext_resource type="AudioStream" uid="uid://y8ovspyh0enn" path="res://sound fx/Projectile Hit.wav" id="19_hrx64"]
+[ext_resource type="AudioStream" uid="uid://bj8cctw2odaw0" path="res://sound fx/Claw Shoot.wav" id="24_ek12h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u65pw"]
 atlas = ExtResource("3_sehvh")
@@ -571,8 +571,7 @@ stream = ExtResource("18_h7p1v")
 volume_db = -10.0
 
 [node name="RangedAtk" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("19_hrx64")
-volume_db = -10.0
+stream = ExtResource("24_ek12h")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
