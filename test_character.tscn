@@ -304,23 +304,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u65pw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3ipgd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cd0ya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s5kla")
-}],
-"loop": false,
-"name": &"dash_one_claw",
-"speed": 14.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_d07jk")
 }, {
 "duration": 1.0,
@@ -518,7 +501,7 @@ script = ExtResource("1_spkl0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -4)
 sprite_frames = SubResource("SpriteFrames_iqltu")
-animation = &"idle_no_tail"
+animation = &"idle_bot_claw_no_tail"
 autoplay = "idle_no_tail"
 offset = Vector2(0, -2)
 flip_h = true

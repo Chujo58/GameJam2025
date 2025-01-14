@@ -20,6 +20,8 @@ func _on_body_entered(body: Node2D) -> void:
 		current_pierce_count += 1
 		if current_pierce_count >= max_pierce_count:
 			queue_free()
+			$"../../..".hasRanged = true
 	elif "TileMapLayer" in body.name:
 		print(body)
 		queue_free()
+		$"../../..".hasRanged = true

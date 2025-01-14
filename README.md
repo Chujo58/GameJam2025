@@ -1,5 +1,16 @@
-# GameJam2025
+# Notes for next release:
+(2025-01-13)
+## Missing assets:
+- [ ] Idle & walking animation with two claws.
+- [ ] Idle & walking animation for top claw only.
+- [ ] Dash animation for the top claw only doesn't have the swoosh vfx?
 
+> If there ever is time, maybe fix the animation to do something using a Composite Animation/Texture holder to avoid the large number of files.
+
+Change of plans (2025-01-14): do the composite thing, basically make a general node and then stack animated sprite 2d objects.
+
+
+# General information for GameJam
 - Lost and found
 - Dungeon crawler type of game was the original idea
 
