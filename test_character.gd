@@ -9,10 +9,14 @@ var SPEED:int = DEFAULT_SPEED
 const MAX_DASH_CHARGES = 3
 const MAX_HP = 750
 
+#Variables for motion
 var movement_direction = Vector2.ZERO
 var old_movement_direction = Vector2.ZERO
 var dash_direction = Vector2.ZERO
 var current_dash_charges = 3
+
+var dashing = false
+var walking = false
 
 @onready var HP = MAX_HP
 const BULLET = preload("res://Bullet.tscn")
@@ -20,9 +24,10 @@ const MELEE_AREA = preload("res://melee_area.tscn")
 const GAME_OVER = preload("res://game_over.tscn")
 
 #power-ups
-var hasMelee = false
-var hasRanged = false
+var hasMelee = true
+var hasRanged = true
 var hasTail = false
+var hasHat = false
 
 #State of attack:
 var doingMeleeAtk = false
@@ -32,14 +37,16 @@ var melee_area = null
 var bullet = null
 
 #Variable for lobster attack options
-var clearcount = 0
+var clearcount = 6
 var canShoot = true
-var dashing = false
 var isInSpawn = true
 
 var isGameOver = true
-
 var hasDied = false
+
+#Variable for sound
+@onready var audio_streams = [$WalkingAudioStream, $DashingAudioStream, $TakingDamageAudioStream, $DeathByAcid, $DeathByHit, $MeleeMissAtk, $MeleeAtk, $RangedAtk]
+var muted = false
 
 func _ready():
 	$DashBar/ProgressBar.max_value = MAX_DASH_CHARGES
@@ -47,73 +54,23 @@ func _ready():
 	$HealthBar/ProgressBar.max_value = MAX_HP
 	$"../MainTheme".play()
 
-
-func play_dash_animation():
-	if !hasTail and !hasMelee and !hasRanged: #No animation if there is no tail. Character needs tail to dash
-		return
-
-	if hasMelee: #If only melee claw
-		$AnimatedSprite2D.play("dash_bot_claw")
-		return
-
-	if hasMelee and hasRanged: #If two claws obtained
-		$AnimatedSprite2D.play("dash_two_claw")
-		return
-
-	if hasTail: #At this point if we haven't entered the two previous if statements, then we don't have claws, only the tail.
-		$AnimatedSprite2D.play("dash_no_claw")
-		return
-
-func play_walk_animation():
-	if !hasTail and !hasMelee and !hasRanged:
-		$AnimatedSprite2D.play("walking_no_tail")
-		return
-
-	if hasMelee:
-		if hasTail:
-			$AnimatedSprite2D.play("walking_bot_claw")
-			return
-		$AnimatedSprite2D.play("walking_bot_claw_no_tail")
-		return
-
-	if hasMelee and hasRanged:
-		$AnimatedSprite2D.play("walking_two_claw")
-		return
-
-	if hasTail:
-		$AnimatedSprite2D.play("walking_no_claw")
-		return
-
-func play_idle_animation():
-	if !hasTail and !hasMelee and !hasRanged:
-		$AnimatedSprite2D.play("idle_no_tail")
-		return
-		
-	if hasMelee: #If only melee claw
-		if hasTail:
-			$AnimatedSprite2D.play("idle_bot_claw")
-			return
-		$AnimatedSprite2D.play("idle_bot_claw_no_tail")
-		return
-
-	if hasMelee and hasRanged: #If two claws obtained
-		$AnimatedSprite2D.play("idle_two_claw")
-		return
-
-	if hasTail:
-		$AnimatedSprite2D.play("idle_no_claw")
-		return
+func mute():
+	for node in audio_streams:
+		node.stop()
+		node.playing = false
 
 func play_animation():
 	if doingMeleeAtk:
 		hasMelee = false
 	if doingRangedAtk:
 		hasRanged = false
-		
-	if velocity != Vector2.ZERO:
-		if dashing: play_dash_animation()
-		else: play_walk_animation()
-	else: play_idle_animation()
+
+	if not walking and not dashing:
+		$CompositeSprite2D.idling(hasTail, hasRanged, hasMelee, hasHat)
+	if walking:
+		$CompositeSprite2D.walking(hasTail, hasRanged, hasMelee, hasHat)
+	if dashing:
+		$CompositeSprite2D.dashing(hasTail, hasRanged, hasMelee, hasHat)
 
 
 func get_input(input_dir = Vector2.ZERO):
@@ -124,7 +81,7 @@ func get_input(input_dir = Vector2.ZERO):
 	velocity = input_direction * SPEED
 	# last_direction = input_direction
 
-	if velocity != Vector2.ZERO: #If the character is moving around
+	if walking: #If the character is moving around
 		if dashing:
 			if $WalkingAudioStream.playing:
 				$WalkingAudioStream.stop()
@@ -142,11 +99,14 @@ func _physics_process(delta: float) -> void:
 	movement_direction = get_input(dash_direction)
 	if movement_direction != Vector2.ZERO:
 		old_movement_direction = movement_direction
+		walking = true
+	else:
+		walking = false
+	
 	if not isGameOver:
 		move_and_slide()
 		
 	doingMeleeAtk = false
-	doingRangedAtk = false
 	
 	if Input.is_action_just_pressed("Run") and hasTail and current_dash_charges > 0 and not isGameOver:
 		$DashTimer.start()
@@ -175,18 +135,24 @@ func _physics_process(delta: float) -> void:
 		melee()
 	
 	if get_global_mouse_position().x < position.x:
-		$AnimatedSprite2D.flip_h = false
-		$AnimatedSprite2D.offset.x = -3
-		$AnimatedSprite2D.offset.y = -2
+		$CompositeSprite2D.scale.x = 1
+		if melee_area != null:
+			melee_area.scale.y = -1
 	else:
-		$AnimatedSprite2D.flip_h = true
-		$AnimatedSprite2D.offset.x = 3
-		$AnimatedSprite2D.offset.y = -2
+		$CompositeSprite2D.scale.x = -1
+		if melee_area != null:
+			melee_area.scale.y = 1
 
-	play_animation()
+	if doingRangedAtk:
+		if dashing: $CompositeSprite2D.regrowing("dash", hasTail, hasRanged, hasMelee, hasHat)
+		if walking: $CompositeSprite2D.regrowing("walk", hasTail, hasRanged, hasMelee, hasHat)
+		if not dashing and not walking: $CompositeSprite2D.regrowing("idle", hasTail, hasRanged, hasMelee, hasHat)
+	else:
+		play_animation()
+
+	if muted:
+		mute()
 		
-	#$CompositeSprite/Body.texture #this work if Sprite type of node
-	#$CompositeSprite/Body.sprite_frames = ""
 
 func _on_dash_regen_cd_timeout() -> void:
 	if current_dash_charges < MAX_DASH_CHARGES:
@@ -235,3 +201,5 @@ func take_damage(value:int):
 
 func _on_shoot_timer_timeout() -> void:
 	canShoot = true
+	hasRanged = true
+	doingRangedAtk = false

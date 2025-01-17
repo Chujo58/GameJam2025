@@ -1,38 +1,38 @@
 [gd_scene load_steps=8 format=3 uid="uid://djxqlx0k37u8t"]
 
 [ext_resource type="Script" path="res://melee_area.gd" id="1_6rvc3"]
-[ext_resource type="Texture2D" uid="uid://tlp6jbrq41m2" path="res://lobterassets/lobterslash.png" id="2_ro5dx"]
+[ext_resource type="Texture2D" uid="uid://bahgk6bm71wmi" path="res://lobterassets/lobsterlayers!/lowclaw_melee.png" id="2_fxbyc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dhryr"]
-atlas = ExtResource("2_ro5dx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbnih"]
+atlas = ExtResource("2_fxbyc")
 region = Rect2(0, 0, 46, 30)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sl3e4"]
-atlas = ExtResource("2_ro5dx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_77n60"]
+atlas = ExtResource("2_fxbyc")
 region = Rect2(46, 0, 46, 30)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qd6m8"]
-atlas = ExtResource("2_ro5dx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pwex"]
+atlas = ExtResource("2_fxbyc")
 region = Rect2(92, 0, 46, 30)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_186wr"]
-atlas = ExtResource("2_ro5dx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeab7"]
+atlas = ExtResource("2_fxbyc")
 region = Rect2(138, 0, 46, 30)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3wojk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dhryr")
+"texture": SubResource("AtlasTexture_rbnih")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sl3e4")
+"texture": SubResource("AtlasTexture_77n60")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qd6m8")
+"texture": SubResource("AtlasTexture_3pwex")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_186wr")
+"texture": SubResource("AtlasTexture_yeab7")
 }],
 "loop": false,
 "name": &"default",
@@ -45,14 +45,15 @@ collision_mask = 2
 script = ExtResource("1_6rvc3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_3wojk")
 autoplay = "default"
-frame = 2
+frame = 3
+frame_progress = 1.0
 flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(15, 3)
+position = Vector2(15, 1)
 rotation = -2.39285
 polygon = PackedVector2Array(16, 11, 5, 12, -5, 7, -8, -3, -7, -11, 1, -16, 4, -9, 8, -2, 11, 4)
 

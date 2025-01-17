@@ -1,14 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://b86d2notwmoky"]
+[gd_scene load_steps=10 format=3 uid="uid://b86d2notwmoky"]
 
 [ext_resource type="Texture2D" uid="uid://cftt512djcb7l" path="res://lobterassets/creditsstill.png" id="1_8mevg"]
+[ext_resource type="Texture2D" uid="uid://bk20mjbcyx2fd" path="res://lobterassets/l_credits.png" id="2_2xe6k"]
+[ext_resource type="Script" path="res://ending_screen_animation.gd" id="3_b32l6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3wgy"]
+atlas = ExtResource("2_2xe6k")
+region = Rect2(0, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al45a"]
+atlas = ExtResource("2_2xe6k")
+region = Rect2(192, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhe0m"]
+atlas = ExtResource("2_2xe6k")
+region = Rect2(384, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8ynl"]
+atlas = ExtResource("2_2xe6k")
+region = Rect2(576, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esb3e"]
+atlas = ExtResource("2_2xe6k")
+region = Rect2(768, 0, 192, 108)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jx68v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3wgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al45a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhe0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8ynl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esb3e")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ending_screen" type="CanvasLayer"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 offset_right = 387.0
 offset_bottom = 226.0
 texture = ExtResource("1_8mevg")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-offset_right = 387.0
-offset_bottom = 226.0
+[node name="EndingScreenAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(193.778, 109)
+scale = Vector2(2.01852, 2.01852)
+sprite_frames = SubResource("SpriteFrames_jx68v")
+script = ExtResource("3_b32l6")
