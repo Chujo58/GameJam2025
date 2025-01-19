@@ -1,0 +1,9 @@
+[gd_resource type="Theme" format=3 uid="uid://b458yhf7afqoh"]
+
+[resource]
+GridContainer/constants/v_separation = 8
+Label/font_sizes/font_size = 16
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 5

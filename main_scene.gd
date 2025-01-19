@@ -1,6 +1,8 @@
 extends Node2D
 
 # add global variables here
+var start_menu_showing = true
+
 var chicken_enemy_scene = preload("res://chickenEnemy.tscn")
 var orange_enemy_scene = preload("res://orange_enemy.tscn")
 var fish_enemy_scene = preload("res://fish_enemy.tscn")

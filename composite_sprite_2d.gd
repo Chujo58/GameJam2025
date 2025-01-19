@@ -31,7 +31,7 @@ func walking(tail_state, top_state, bot_state, hat_state):
 func dashing(tail_state, top_state, bot_state, hat_state):
 	play("dash", tail_state, top_state, bot_state, hat_state)
 
-func regrowing(animation_name, tail_state, top_state, bot_state, hat_state):
+func regrowing(animation_name, tail_state, _top_state, bot_state, hat_state):
 	body_play(animation_name)
 	body_part_play($Tail, animation_name, tail_state)
 	

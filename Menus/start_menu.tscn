@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://risiyh1p1o0"]
+
+[ext_resource type="Theme" uid="uid://b458yhf7afqoh" path="res://Menus/menus.tres" id="1_772g6"]
+[ext_resource type="Script" path="res://Menus/start_menu.gd" id="2_xm5kl"]
+[ext_resource type="PackedScene" uid="uid://bcl4f0yn5lsj0" path="res://Menus/settings_menu.tscn" id="3_jid83"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_772g6")
+script = ExtResource("2_xm5kl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_772g6")
+color = Color(0.25098, 0.25098, 0.25098, 0.705882)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.5
+offset_top = -22.5
+offset_right = 170.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "A Titled Lobster Game"
+horizontal_alignment = 1
+
+[node name="ButtonContainer" type="GridContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Start" type="Button" parent="GridContainer/ButtonContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="SettingsButton" type="Button" parent="GridContainer/ButtonContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="GridContainer/ButtonContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_jid83")]
+visible = false
+
+[connection signal="pressed" from="GridContainer/ButtonContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="GridContainer/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="GridContainer/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]

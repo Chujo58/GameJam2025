@@ -1,0 +1,140 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcl4f0yn5lsj0"]
+
+[ext_resource type="Theme" uid="uid://b458yhf7afqoh" path="res://Menus/menus.tres" id="1_ytflc"]
+
+[node name="SettingsMenu" type="Popup"]
+size = Vector2i(384, 252)
+visible = true
+theme = ExtResource("1_ytflc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ytflc")
+color = Color(0.25098, 0.25098, 0.25098, 0.705882)
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ytflc")
+current_tab = 2
+
+[node name="Video" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Video"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Video/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="DisplayModeLabel" type="Label" parent="TabContainer/Video/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Display"
+
+[node name="DisplayModeBtn" type="OptionButton" parent="TabContainer/Video/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+selected = 1
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+
+[node name="Label2" type="Label" parent="TabContainer/Video/MarginContainer/GridContainer"]
+visible = false
+layout_mode = 2
+text = "Text 2"
+
+[node name="Audio" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Audio/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="TabContainer/Audio/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="TabContainer/Audio/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SfxVolumeLabel" type="Label" parent="TabContainer/Audio/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="SfxSlider" type="HSlider" parent="TabContainer/Audio/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="BgVolumeLabel" type="Label" parent="TabContainer/Audio/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Background Volume"
+
+[node name="BgSlider" type="HSlider" parent="TabContainer/Audio/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Gameplay" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Gameplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Gameplay/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="DifficultyLabel" type="Label" parent="TabContainer/Gameplay/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Difficulty"
+
+[node name="DifficultySlider" type="HSlider" parent="TabContainer/Gameplay/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="RoomLabel" type="Label" parent="TabContainer/Gameplay/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Rooms until boss"
+
+[node name="RoomSlider" type="HSlider" parent="TabContainer/Gameplay/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4

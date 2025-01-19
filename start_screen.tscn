@@ -2,14 +2,12 @@
 
 [ext_resource type="Script" path="res://start_screen.gd" id="1_4q2t1"]
 
-[node name="start_screen" type="CanvasLayer"]
+[node name="StartMenu" type="CanvasLayer"]
 script = ExtResource("1_4q2t1")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-offset_left = 1.0
-offset_top = -2.0
-offset_right = 389.0
-offset_bottom = 250.0
+offset_right = 388.0
+offset_bottom = 252.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
