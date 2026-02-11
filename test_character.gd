@@ -24,8 +24,8 @@ const MELEE_AREA = preload("res://melee_area.tscn")
 const GAME_OVER = preload("res://game_over.tscn")
 
 #power-ups
-var hasMelee = true
-var hasRanged = true
+var hasMelee = false
+var hasRanged = false
 var hasTail = false
 var hasHat = false
 
@@ -37,7 +37,7 @@ var melee_area = null
 var bullet = null
 
 #Variable for lobster attack options
-var clearcount = 6
+var clearcount = 0
 var canShoot = true
 var isInSpawn = true
 
